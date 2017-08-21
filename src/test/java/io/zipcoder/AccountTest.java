@@ -5,61 +5,70 @@ import java.math.BigDecimal;
 import org.junit.Before;
 import org.junit.Test;
 
+import io.zipcoder.account.Account;
+import io.zipcoder.holder.AccountHolder;
+import io.zipcoder.holder.Person;
+
 import org.junit.Assert;
 
 public class AccountTest {
 	
-	private InvestmentAccount target;
+	class AccountFixture extends Account{
+
+		public AccountFixture(AccountHolder accountHolder, BigDecimal balance, long accountNumber) {
+			super(accountHolder, balance, accountNumber);
+		}
+		
+	}
+	
+	private Account target;
 	
 	@Before
 	public void setup(){
-	 AccountHolder holderFixture = new PersonalAccountHolder("Jhonny", "Anything", "Tom");	
-	 target = new InvestmentAccount(holderFixture,new BigDecimal("10.00"),100000001, 3.5);	
+	 AccountHolder holderFixture = new Person("Jhonny", "Anything", "Tom");	
+	 target = new AccountFixture(holderFixture,new BigDecimal("10.00"),100000001);	
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void test_createAccount_negativeBalance(){
+		//:Given	
+		AccountHolder holderFixture = new Person("Jhonny", "Anything", "Tom");	
+		//:When
+		new AccountFixture(holderFixture, new BigDecimal("-10.00"), 1000002);
+		
 	}
 	
 	@Test
 	public void test_deposit_success(){
-		//:Given
-		boolean result = target.deposit(new BigDecimal("3.00"));
 		//:When
-		
+		target.deposit(new BigDecimal("3.00"));
 		//:Then
-		Assert.assertTrue(result);
 		Assert.assertEquals(new BigDecimal("13.00"), target.getBalance());
 		
 	}
 	
-	@Test
+	@Test(expected=IllegalArgumentException.class)
 	public void test_deposit_amountUnderZero(){	
-		//:Given
-		boolean result = target.deposit(new BigDecimal("-3.00"));
+		
 		//:When
-				
-		//:Then
-		Assert.assertFalse(result);
+		target.deposit(new BigDecimal("-3.00"));
 	}
 	
 	@Test
 	public void test_withdraw_success(){
-		//:Given
-		
+
 		//:When
-		boolean result = target.withdraw(new BigDecimal("2.00"));
+		target.withdraw(new BigDecimal("2.00"));
 		
 		//:Then
-		Assert.assertTrue(result);
 		Assert.assertEquals(new BigDecimal("8.00"), target.getBalance());
 	}
 	
-	@Test
+	@Test(expected=IllegalArgumentException.class)
 	public void test_withdraw_amountUnderZero(){
-		//:Given
 		
 		//:When
-		boolean result = target.withdraw(new BigDecimal("-2.00"));
-		
-		//:Then
-		Assert.assertFalse(result);
+		target.withdraw(new BigDecimal("-2.00"));		
 	
 	}
 	
@@ -68,10 +77,9 @@ public class AccountTest {
 		//:Given
 		
 		//:When
-		boolean result = target.withdraw(new BigDecimal("20.00"));
+		target.withdraw(new BigDecimal("20.00"));
 		
 		//:Then
-		Assert.assertTrue(result);
 		Assert.assertEquals(new BigDecimal("-10.00"), target.getBalance());
 	
 	}

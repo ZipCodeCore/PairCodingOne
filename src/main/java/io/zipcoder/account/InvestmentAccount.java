@@ -1,6 +1,8 @@
-package io.zipcoder;
+package io.zipcoder.account;
 
 import java.math.BigDecimal;
+
+import io.zipcoder.holder.AccountHolder;
 
 public class InvestmentAccount extends Account {
 	

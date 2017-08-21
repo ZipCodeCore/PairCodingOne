@@ -1,6 +1,8 @@
-package io.zipcoder;
+package io.zipcoder.account;
 
 import java.math.BigDecimal;
+
+import io.zipcoder.holder.AccountHolder;
 
 public class CheckingAccount extends Account {
 	
@@ -23,12 +25,16 @@ public class CheckingAccount extends Account {
 	}
 
 	@Override
-	public boolean withdraw(BigDecimal amount){
-		return false;
+	public void withdraw(BigDecimal amount){
+		if(amount.subtract(this.getBalance()).compareTo(BigDecimal.ZERO)>0){
+			if(isCanOverDraft()){
+				super.withdraw(amount);
+			}else{
+				System.out.println("This accoun't doesn't have enough founds.");
+			}
+		}else{
+			super.withdraw(amount);
+		}
 	}
 	
-	
-	
-	
-
 }

@@ -1,12 +1,12 @@
-package io.zipcoder;
+package io.zipcoder.transaction;
 
 import java.math.BigDecimal;
 
 public class Transaction {
 	
-	private TransactionType type;
-	private BigDecimal amount;
-	private BigDecimal remainingBalance;
+	private final TransactionType type;
+	private final BigDecimal amount;
+	private final BigDecimal remainingBalance;
 	
 	
 	public Transaction(TransactionType type, BigDecimal amount, BigDecimal remainingBalance ){

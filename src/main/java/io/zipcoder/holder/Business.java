@@ -1,10 +1,10 @@
-package io.zipcoder;
+package io.zipcoder.holder;
 
-public class BusinessAccountHolder extends AccountHolder {
+public class Business extends AccountHolder {
 	
 	private String businessName;
 
-	public BusinessAccountHolder(String businessName) {
+	public Business(String businessName) {
 		this.businessName = businessName;
 	}
 
