@@ -23,6 +23,12 @@ public class InvestmentAccount extends Account {
 	
 	public void applyInterest(){
 		
+		BigDecimal interestBD = new  BigDecimal(this.interestRate);
+		
+		BigDecimal totalInterest = interestBD.multiply(this.getBalance()).divide(new BigDecimal("100.00"));
+		
+		super.deposit(totalInterest);
+		
 	}
 
 

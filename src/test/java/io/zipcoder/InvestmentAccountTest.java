@@ -2,6 +2,7 @@ package io.zipcoder;
 
 import java.math.BigDecimal;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,9 +13,7 @@ import io.zipcoder.holder.Business;
 public class InvestmentAccountTest {
 	
 	private InvestmentAccount target;
-	
-	
-	
+		
 	@Before
 	public void setup(){
 		AccountHolder holderFixture = new Business("JP Morgan");
@@ -23,8 +22,11 @@ public class InvestmentAccountTest {
 	
 	@Test
 	public void test_applyInterest_success(){
-		//:Given
+		//:When
+		target.applyInterest();
 		
+		//:Then
+		Assert.assertEquals(new BigDecimal("10.35"), target.getBalance());
 		
 	}
 
