@@ -41,6 +41,18 @@ public class InvestmentAccountTest {
 		// Then
 		Assert.assertEquals("credit Investment Account Test - doubles were equal", amount,
 				investmentAccount.getBalance(), 0.0);
+
+		// Given When & Then (2)
+		try {
+			investmentAccount.creditAccount(-50);
+			Assert.assertTrue(
+					"creditIvenstmentAccountTest - credit account with negative number - illegalArgumentException was raised",
+					false);
+		} catch (IllegalArgumentException e) {
+			Assert.assertTrue(
+					"creditIvenstmentAccountTest - credit account with negative number - illegalArgumentException was raised",
+					true);
+		}
 	}
 
 	@Test
@@ -58,6 +70,45 @@ public class InvestmentAccountTest {
 
 		// Then
 		Assert.assertEquals("debit Investment Account Test - doubles were equal", expected, actual, 0.0);
+
+		// Given When & Then (2)
+		try {
+			investmentAccount.debitAccount(-50);
+			Assert.assertTrue(
+					"debitIvenstmentAccountTest - debit account with negative number - illegalArgumentException was raised",
+					false);
+		} catch (IllegalArgumentException e) {
+			Assert.assertTrue(
+					"debitIvenstmentAccountTest - debit account with negative number - illegalArgumentException was raised",
+					true);
+		}
+	}
+
+	@Test
+	public void setInterestTest() {
+
+		// :Given (1) - positive interest rate test
+		AccountHolder zac = new Person("Zac", "J", "Effron");
+		InvestmentAccount investmentAccount = new InvestmentAccount(zac, 1);
+		investmentAccount.setInterest(1.01);
+		double expected = 1.01;
+
+		// :When (1)
+		double actual = investmentAccount.getInterest();
+
+		// :Then (1)
+		Assert.assertEquals("setInterestTest - positive interest test passed", expected, actual, 0);
+		
+		// :Given When & Then (2) - negative interest rate test
+		try{
+			investmentAccount.setInterest(-0.1);
+			Assert.assertTrue("setInterestTest - set negative interest rate - illegalArgumentException was raised",
+					false);
+		} catch (IllegalArgumentException e) {
+			Assert.assertTrue("setInterestTest - set negative interest rate - illegalArgumentException was raised",
+					true);
+		}
+
 	}
 
 	@Test
@@ -101,7 +152,5 @@ public class InvestmentAccountTest {
 		Assert.assertEquals("getTransactionLogTest - strings were equal", expected, actual);
 
 	}
-	
-	
-	
+
 }
