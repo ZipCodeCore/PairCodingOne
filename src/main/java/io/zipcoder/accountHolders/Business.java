@@ -1,4 +1,4 @@
-package accountHolders;
+package io.zipcoder.accountHolders;
 
 public class Business extends AccountHolder{
 

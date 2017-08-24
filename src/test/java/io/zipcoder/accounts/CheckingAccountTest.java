@@ -2,8 +2,8 @@ package io.zipcoder.accounts;
 
 import org.junit.Test;
 
-import accountHolders.AccountHolder;
-import accountHolders.Person;
+import io.zipcoder.accountHolders.AccountHolder;
+import io.zipcoder.accountHolders.Person;
 import io.zipcoder.accounts.CheckingAccount;
 
 import org.junit.Assert;

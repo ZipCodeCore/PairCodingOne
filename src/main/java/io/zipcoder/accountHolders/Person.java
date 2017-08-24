@@ -1,4 +1,4 @@
-package accountHolders;
+package io.zipcoder.accountHolders;
 
 public class Person extends AccountHolder{
 	

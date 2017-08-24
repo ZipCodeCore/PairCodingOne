@@ -2,7 +2,8 @@ package io.zipcoder.accounts;
 
 import org.junit.Assert;
 import org.junit.Test;
-import accountHolders.Business;
+
+import io.zipcoder.accountHolders.Business;
 
 public class SavingsAccountTest {
 

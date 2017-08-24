@@ -2,8 +2,8 @@ package io.zipcoder.accounts;
 
 import java.util.ArrayList;
 
-import accountHolders.AccountHolder;
 import io.zipcoder.Transaction;
+import io.zipcoder.accountHolders.AccountHolder;
 
 public abstract class Account {
 

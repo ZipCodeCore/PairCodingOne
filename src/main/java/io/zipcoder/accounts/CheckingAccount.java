@@ -1,6 +1,6 @@
 package io.zipcoder.accounts;
 
-import accountHolders.AccountHolder;
+import io.zipcoder.accountHolders.AccountHolder;
 
 public class CheckingAccount extends Account {
 

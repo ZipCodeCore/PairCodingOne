@@ -3,7 +3,7 @@ package io.zipcoder.accountHolders;
 import org.junit.Assert;
 import org.junit.Test;
 
-import accountHolders.Person;
+import io.zipcoder.accountHolders.Person;
 
 public class PersonTest {
 

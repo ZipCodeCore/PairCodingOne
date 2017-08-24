@@ -2,9 +2,9 @@ package io.zipcoder.accounts;
 
 import org.junit.Test;
 
-import accountHolders.AccountHolder;
-import accountHolders.Business;
-import accountHolders.Person;
+import io.zipcoder.accountHolders.AccountHolder;
+import io.zipcoder.accountHolders.Business;
+import io.zipcoder.accountHolders.Person;
 import io.zipcoder.accounts.InterestEnabledAccount;
 import io.zipcoder.accounts.InvestmentAccount;
 
