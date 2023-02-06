@@ -1,4 +1,7 @@
 # Bank Account Pair Coding
+
+(early UML to code lab)
+
 For this assignment, we're going to pair up and build some bank accounts.
 
 Start with building out your UML for all of this and then go into writing your tests and code.  The UML here should
