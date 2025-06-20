@@ -1,6 +1,7 @@
 # Bank Account Pair Coding
 
 This might be a decent place to put a "ledger lab" (double-entry-ledger fundamentals)
+AND enable it to be done in Python as well.
 
 (early UML to code lab)
 
