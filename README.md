@@ -1,5 +1,7 @@
 # Bank Account Pair Coding
 
+This might be a decent place to put a "ledger lab" (double-entry-ledger fundamentals)
+
 (early UML to code lab)
 
 For this assignment, we're going to pair up and build some bank accounts.
